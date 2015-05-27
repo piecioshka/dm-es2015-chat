@@ -1,6 +1,6 @@
 {
   "name": "dm-es6-app-seed",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "main": "app/index.html",
   "repository": {
     "type": "git",
@@ -15,6 +15,7 @@
   "dependencies": {
     "babel-core": "^4.6.6",
     "babel-loader": "^4.0.0",
-    "webpack": "^1.7.2"
+    "webpack": "^1.7.2",
+    "crypto-js": "^3.1.4"
   }
 }
