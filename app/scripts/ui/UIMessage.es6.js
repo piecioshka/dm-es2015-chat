@@ -4,7 +4,7 @@ var $ = require('jquery');
 
 class UIMessage {
     constructor(message, $list) {
-        this.$dom = $('<li>').addClass('list-group-item').html(message.text);
+        this.$dom = $('<li>').addClass('list-group-item').html(message.toString());
         this.$list = $list;
     }
 

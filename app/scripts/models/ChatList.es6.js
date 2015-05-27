@@ -1,7 +1,6 @@
 'use strict';
 
 var Person = require('./Person.es6');
-
 var UIChatList = require('../ui/UIChatList.es6');
 var UIMessage = require('../ui/UIMessage.es6');
 
@@ -24,6 +23,8 @@ class ChatList {
         });
 
         this._list.push(person);
+
+        return person;
     }
 
     remove(personId) {
@@ -48,8 +49,15 @@ class ChatList {
         this._list.forEach(handler);
     }
 
-    getMembers() {
-        return this._list;
+    getSimple() {
+        return this._list.map((member) => {
+            return {
+                nickname: member.nickname,
+                name: member.name,
+                surname: member.surname,
+                messages: member.messages
+            }
+        });
     }
 
     getByIndex(index) {

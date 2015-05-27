@@ -1,8 +1,13 @@
 'use strict';
 
 class Message {
-    constructor(text) {
+    constructor(person, text) {
+        this.person = person;
         this.text = text;
+    }
+
+    toString() {
+        return `${this.person}: ${this.text}`
     }
 }
 

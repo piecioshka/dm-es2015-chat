@@ -16,9 +16,9 @@ class Person extends EventEmitter {
     }
 
     newMessage(text) {
-        var msg = new Message(`${this}: ${text}`);
+        this.messages.push(text);
+        var msg = new Message(this, text);
         this.emit('new:message', msg);
-        this.messages.push(msg);
     }
 
     get id() {

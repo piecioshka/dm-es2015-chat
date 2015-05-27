@@ -14,11 +14,9 @@ class UIInput {
     }
 
     onEnter(callback) {
-        callback = callback || $.noop;
-
         this.$input.on('keypress', (e) => {
             if (UIInput.isEnter(e)) {
-                callback();
+                (callback || $.noop)();
                 this.$input.val('');
             }
         });
