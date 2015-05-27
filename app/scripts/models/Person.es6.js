@@ -1,12 +1,23 @@
 'use strict';
 
 var SHA256 = require('crypto-js/sha256');
+var EventEmitter = require('../vendor/EventEmitter');
+var Message = require('./Message.es6');
 
-class Person {
+class Person extends EventEmitter {
     constructor(params) {
+        super();
+
         this.nickname = params.nickname;
         this.name = params.name;
         this.surname = params.surname;
+        this.messages = [];
+    }
+
+    newMessage(text) {
+        var msg = new Message(text);
+        this.emit('new:message', msg);
+        this.messages.push(msg);
     }
 
     get id() {
