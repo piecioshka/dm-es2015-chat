@@ -51,6 +51,10 @@ class ChatList {
     getMembers() {
         return this._list;
     }
+
+    getByIndex(index) {
+        return this._list[index];
+    }
 }
 
 export default ChatList;

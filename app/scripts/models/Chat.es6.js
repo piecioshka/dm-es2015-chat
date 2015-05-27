@@ -4,21 +4,25 @@ var Person = require('./Person.es6');
 var ChatList = require('./ChatList.es6');
 var StorageHelper = require('../helpers/StorageHelper.es6');
 
+var UIInput = require('../ui/UIInput.es6');
+
 class Chat {
     constructor() {
-        console.log('new Chat');
         this.list = new ChatList();
         this.storage = new StorageHelper();
+        this.input = new UIInput();
     }
 
     setup() {
         this.loadPeople();
 
-        this.addPerson(new Person({
-            nickname: 'piecioshka',
-            name: 'Piotr',
-            surname: 'Kowalski'
-        }));
+        var member = this.list.getByIndex(1);
+
+        this.input.onEnter(() => {
+            member.newMessage(this.input.value());
+        });
+
+        this.input.render(member);
     }
 
     loadPeople() {

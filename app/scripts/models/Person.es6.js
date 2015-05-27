@@ -1,8 +1,9 @@
 'use strict';
 
 var SHA256 = require('crypto-js/sha256');
-var EventEmitter = require('../vendor/EventEmitter');
+var EventEmitter = require('../vendor/EventEmitter.es6');
 var Message = require('./Message.es6');
+var template = require('../../templates/person.handlebars');
 
 class Person extends EventEmitter {
     constructor(params) {
@@ -15,7 +16,7 @@ class Person extends EventEmitter {
     }
 
     newMessage(text) {
-        var msg = new Message(text);
+        var msg = new Message(`${this}: ${text}`);
         this.emit('new:message', msg);
         this.messages.push(msg);
     }
@@ -25,7 +26,7 @@ class Person extends EventEmitter {
     }
 
     toString() {
-        return `Person ${this.name} ${this.surname} aka ${this.nickname}`
+        return template(this);
     }
 }
 

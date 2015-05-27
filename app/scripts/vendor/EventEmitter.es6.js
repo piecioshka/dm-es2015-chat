@@ -34,7 +34,7 @@ class EventEmitter {
     }
 
     once(type, listener) {
-        var eventsInstance = this
+        var eventsInstance = this;
 
         function onceCallback() {
             eventsInstance.off(type, onceCallback);

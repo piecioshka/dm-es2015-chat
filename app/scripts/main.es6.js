@@ -4,12 +4,22 @@
 // ----------------------------------------------------------
 
 var Chat = require('./models/Chat.es6');
+var Person = require('./models/Person.es6');
 
 // Bootstrap
 var chat = new Chat();
 chat.setup();
 
-setTimeout(() => {
-    var members = chat.list.getMembers();
-    members[0].newMessage('to jest testowy message');
-}, 2000);
+// Create list of users.
+chat.addPerson(new Person({
+    nickname: 'Admin'
+}));
+
+chat.addPerson(new Person({
+    nickname: 'piecioshka',
+    name: 'Piotr',
+    surname: 'Kowalski'
+}));
+
+// Put hello message.
+chat.list.getByIndex(0).newMessage('Witaj!');

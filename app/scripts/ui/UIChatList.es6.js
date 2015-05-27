@@ -8,7 +8,7 @@ class UIChatList {
     }
 
     add($message) {
-        this.$dom.append($message);
+        this.$dom.prepend($message);
     }
 
     render() {
