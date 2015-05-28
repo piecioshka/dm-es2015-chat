@@ -28,11 +28,12 @@ class UIInput {
 
     render() {
         $('body').append(this.$dom);
+        this.$input.focus();
+    }
+
+    static isEnter(e) {
+        return e.keyCode === 13;
     }
 }
-
-UIInput.isEnter = (e) => {
-    return e.keyCode === 13;
-};
 
 export default UIInput;

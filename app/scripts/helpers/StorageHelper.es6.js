@@ -5,13 +5,7 @@ class StorageHelper {
         this.storage = localStorage;
     }
 
-    put(key, value) {
-        var previous = this.get(key);
-
-        if (previous) {
-            console.warn('StorageHelper#put: you overwrite previous value ', previous);
-        }
-
+    set(key, value) {
         this.storage.setItem(key, JSON.stringify(value));
     }
 

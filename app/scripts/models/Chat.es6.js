@@ -9,16 +9,17 @@ var UIInput = require('../ui/UIInput.es6');
 class Chat {
     constructor() {
         this.list = new ChatList();
+
+        this.list.on('new:message', () => {
+            this.save();
+        });
+
         this.storage = new StorageHelper();
         this.input = new UIInput();
     }
 
     setup() {
-        var member = this.list.getByIndex(1);
-
-        member.on('new:message', () => {
-            this.save();
-        });
+        var member = this.list.at(1);
 
         this.input.onEnter(() => {
             member.newMessage(this.input.value());
@@ -52,13 +53,13 @@ class Chat {
         }
 
         this.list.add(person);
-        this.storage.put('people', this.list.getSimple());
+        this.storage.set('people', this.list.simpleList());
 
         console.log('Chat#addPerson ', person);
     }
 
     save() {
-        this.storage.put('people', this.list.getSimple());
+        this.storage.set('people', this.list.simpleList());
     }
 }
 

@@ -3,9 +3,12 @@
 var Person = require('./Person.es6');
 var UIChatList = require('../ui/UIChatList.es6');
 var UIMessage = require('../ui/UIMessage.es6');
+var EventEmitter = require('../vendor/EventEmitter.es6');
 
-class ChatList {
+class ChatList extends EventEmitter {
     constructor() {
+        super();
+
         this._list = [];
 
         this.$dom = new UIChatList();
@@ -20,6 +23,7 @@ class ChatList {
         person.on('new:message', (message) => {
             var $msg = new UIMessage(message, this.$dom);
             $msg.render();
+            this.emit('new:message', person, message);
         });
 
         this._list.push(person);
@@ -49,7 +53,7 @@ class ChatList {
         this._list.forEach(handler);
     }
 
-    getSimple() {
+    simpleList() {
         return this._list.map((member) => {
             return {
                 nickname: member.nickname,
@@ -60,7 +64,7 @@ class ChatList {
         });
     }
 
-    getByIndex(index) {
+    at(index) {
         return this._list[index];
     }
 }

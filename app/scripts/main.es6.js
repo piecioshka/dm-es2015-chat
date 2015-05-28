@@ -22,7 +22,7 @@ chat.loadPeople(function failHandler() {
     }));
 
     // Put hello message.
-    chat.list.getByIndex(0).newMessage('Witaj!');
+    chat.list.at(0).newMessage('Witaj!');
 });
 
 chat.setup();
