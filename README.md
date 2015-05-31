@@ -1,5 +1,6 @@
-# dm-es6-app-seed
-Application seed for the DevMeetings' ES6 app
+# dm-es6-chat
+
+Chat application for the DevMeetings' ES6.
 
 ## Installation
 

@@ -6,7 +6,8 @@ module.exports = {
     module: {
         loaders: [
             { test: /\.es6.js$/, exclude: /node_modules/, loader: 'babel-loader' },
-            { test: /\.handlebars$/, loader: 'handlebars-loader' }
+            { test: /\.handlebars$/, loader: 'handlebars-loader' },
+            { test: /\.scss/, loader: 'style-loader!css-loader!sass-loader' }
         ]
     },
     devtool: '#cheap-module-source-map'

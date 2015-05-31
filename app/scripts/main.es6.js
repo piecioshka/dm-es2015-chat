@@ -4,7 +4,7 @@
 // 4. Jednoosobowy chat z możliwością wyszukiwania w historii |
 // -----------------------------------------------------------+
 
-require('style!css!sass!../style/main.scss');
+require('../style/main.scss');
 
 import Chat from './models/Chat.es6';
 

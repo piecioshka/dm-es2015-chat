@@ -1,17 +1,17 @@
 {
-  "name": "dm-es6-app-seed",
-  "version": "1.0.2",
+  "name": "dm-es6-chat",
+  "version": "1.0.0",
   "main": "app/index.html",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kucharskimaciej/dm-es6-app-seed.git"
+    "url": "https://github.com/piecioshka/dm-es6-chat.git"
   },
-  "author": "Maciej Kucharski",
+  "author": "Piotr Kowalski",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/kucharskimaciej/dm-es6-app-seed.git/issues"
+    "url": "https://github.com/piecioshka/dm-es6-chat.git/issues"
   },
-  "homepage": "https://github.com/kucharskimaciej/dm-es6-app-seed.git",
+  "homepage": "https://github.com/piecioshka/dm-es6-chat.git",
   "dependencies": {
     "babel-core": "^4.6.6",
     "babel-loader": "^4.0.0",
@@ -19,9 +19,7 @@
     "handlebars": "^3.0.3",
     "handlebars-loader": "^1.0.2",
     "jquery": "^2.1.4",
-    "webpack": "^1.7.2"
-  },
-  "devDependencies": {
+    "webpack": "^1.7.2",
     "css-loader": "^0.14.4",
     "node-sass": "^3.1.2",
     "sass-loader": "^1.0.2",
