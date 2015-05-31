@@ -12,7 +12,7 @@ class EventEmitter {
     }
 
     on(type, listener) {
-        if (typeof listener != "function") {
+        if (typeof listener !== "function") {
             throw new TypeError()
         }
         var listeners = this._events[type] || (this._events[type] = []);
@@ -49,7 +49,7 @@ class EventEmitter {
             this._events[type] = null
         }
         var listener = args[0];
-        if (typeof listener != "function") {
+        if (typeof listener !== "function") {
             throw new TypeError()
         }
         var listeners = this._events[type];

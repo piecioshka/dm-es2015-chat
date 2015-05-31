@@ -1,7 +1,6 @@
 'use strict';
 
 import $ from 'jquery';
-import Storage from '../helpers/Storage.es6';
 
 class UIButtonClear {
     constructor(cb) {

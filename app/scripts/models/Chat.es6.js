@@ -1,6 +1,5 @@
 'use strict';
 
-import $ from 'jquery';
 import Person from './Person.es6';
 import ChatList from './ChatList.es6';
 import Storage from '../helpers/Storage.es6';

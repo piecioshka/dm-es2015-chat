@@ -31,24 +31,6 @@ class ChatList extends EventEmitter {
         return person;
     }
 
-    remove(personId) {
-        let removeIndex = null;
-
-        this.each((member, index) => {
-            if (member.id === personId) {
-                removeIndex = index;
-            }
-        });
-    }
-
-    isExist(person) {
-        let duplicates = this._list.filter(member => {
-            return (person.id === member.id);
-        });
-
-        return duplicates.length > 0;
-    }
-
     each(handler) {
         this._list.forEach(handler);
     }
