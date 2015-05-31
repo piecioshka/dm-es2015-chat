@@ -38,6 +38,10 @@ class UIChatList {
         $('body').prepend($wrapper);
     }
 
+    clear() {
+        this.$dom.empty();
+    }
+
     static get holderHeight() {
         var windowHeight = $(window).height();
         var footerHeight = $('footer').height();

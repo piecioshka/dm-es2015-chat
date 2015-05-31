@@ -72,6 +72,11 @@ class ChatList extends EventEmitter {
             return person.id === id;
         })[0];
     }
+
+    clear() {
+        this._list.length = 0;
+        this.$dom.clear();
+    }
 }
 
 export default ChatList;

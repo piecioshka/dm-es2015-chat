@@ -9,16 +9,4 @@ var Person = require('./models/Person.es6');
 
 // Bootstrap
 var chat = new Chat();
-
-// Create list of users.
-chat.addPerson(new Person({
-    nickname: 'DevMeetings',
-    type: 'info'
-}));
-
-chat.addPerson(new Person({
-    nickname: 'you',
-    type: 'warning'
-}));
-
 chat.setup();

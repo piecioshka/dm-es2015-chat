@@ -5,6 +5,7 @@ var Person = require('./Person.es6');
 var ChatList = require('./ChatList.es6');
 var Storage = require('../helpers/Storage.es6');
 var UIInput = require('../ui/UIInput.es6');
+var UIButtonClear = require('../ui/UIButtonClear.es6');
 
 class Chat {
     constructor() {
@@ -12,12 +13,29 @@ class Chat {
         this.input.render();
         this.list = new ChatList();
 
+        var clearButton = new UIButtonClear(() => {
+            this.list.clear();
+            this.setup();
+        });
+        clearButton.render();
+
         this.list.on('new:message', () => {
             this.save();
         });
     }
 
     setup() {
+        // Create list of users.
+        this.addPerson(new Person({
+            nickname: 'DevMeetings',
+            type: 'info'
+        }));
+
+        this.addPerson(new Person({
+            nickname: 'you',
+            type: 'warning'
+        }));
+
         this.loadPeople();
 
         var admin = this.list.at(0);
