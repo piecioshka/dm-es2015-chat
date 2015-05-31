@@ -1,11 +1,11 @@
 'use strict';
 
-var $ = require('jquery');
-var template = require('../../templates/input.handlebars');
+import $ from 'jquery';
+import template from '../../templates/input.handlebars';
 
 class UIInput {
     constructor(params) {
-        var compiled = template(params);
+        let compiled = template(params);
         this.$dom = $('<footer>').addClass('navbar navbar-fixed-bottom').html(compiled);
         this.$input = this.$dom.find('input');
     }

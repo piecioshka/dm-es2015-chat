@@ -4,9 +4,8 @@
 // ----------------------------------------------------------
 require('style!css!sass!../style/main.scss');
 
-var Chat = require('./models/Chat.es6');
-var Person = require('./models/Person.es6');
+import Chat from './models/Chat.es6';
+import Person from './models/Person.es6';
 
 // Bootstrap
-var chat = new Chat();
-chat.setup();
+new Chat().setup();

@@ -1,11 +1,11 @@
 'use strict';
 
-var $ = require('jquery');
-var Person = require('./Person.es6');
-var ChatList = require('./ChatList.es6');
-var Storage = require('../helpers/Storage.es6');
-var UIInput = require('../ui/UIInput.es6');
-var UIButtonClear = require('../ui/UIButtonClear.es6');
+import $ from 'jquery';
+import Person from './Person.es6';
+import ChatList from './ChatList.es6';
+import Storage from '../helpers/Storage.es6';
+import UIInput from '../ui/UIInput.es6';
+import UIButtonClear from '../ui/UIButtonClear.es6';
 
 class Chat {
     constructor() {
@@ -13,9 +13,11 @@ class Chat {
         this.input.render();
         this.list = new ChatList();
 
-        var clearButton = new UIButtonClear(() => {
+        let clearButton = new UIButtonClear(() => {
             this.list.clear();
+            this.list.$dom.clear();
             this.setup();
+            this.input.$dom.focus();
         });
         clearButton.render();
 
@@ -26,20 +28,20 @@ class Chat {
 
     setup() {
         // Create list of users.
-        this.addPerson(new Person({
+        this.list.add(new Person({
             nickname: 'DevMeetings',
             type: 'info'
         }));
 
-        this.addPerson(new Person({
+        this.list.add(new Person({
             nickname: 'you',
             type: 'warning'
         }));
 
         this.loadPeople();
 
-        var admin = this.list.at(0);
-        var user = this.list.at(1);
+        let admin = this.list.at(0);
+        let user = this.list.at(1);
 
         if (Chat.isEmptyStorage()) {
             // Put hello message by admin.
@@ -71,15 +73,6 @@ class Chat {
                 }
             });
         }
-    }
-
-    addPerson(person) {
-        if (this.list.isExist(person)) {
-            console.error('Chat#addPerson: you try add person who is already on the list');
-            return;
-        }
-
-        this.list.add(person);
     }
 
     save() {

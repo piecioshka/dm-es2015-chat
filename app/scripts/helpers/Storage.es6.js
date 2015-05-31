@@ -6,7 +6,7 @@ class Storage {
     }
 
     static get(key) {
-        var value = localStorage.getItem(key);
+        let value = localStorage.getItem(key);
 
         if (value) {
             value = JSON.parse(value);

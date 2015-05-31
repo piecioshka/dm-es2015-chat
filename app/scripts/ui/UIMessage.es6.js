@@ -1,6 +1,6 @@
 'use strict';
 
-var $ = require('jquery');
+import $ from 'jquery';
 
 class UIMessage {
     constructor(message, $list) {

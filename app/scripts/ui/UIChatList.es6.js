@@ -1,6 +1,6 @@
 'use strict';
 
-var $ = require('jquery');
+import $ from 'jquery';
 
 class UIChatList {
     constructor() {
@@ -13,8 +13,8 @@ class UIChatList {
     }
 
     scroll() {
-        var height = this.$dom.height();
-        var top = 0;
+        let height = this.$dom.height();
+        let top = 0;
 
         // If we have so much message that can't see all on chat place holder.
         if (height > UIChatList.holderHeight) {
@@ -31,10 +31,9 @@ class UIChatList {
     }
 
     render() {
-        var $wrapper = $('<div>').css({
+        let $wrapper = $('<div>').css({
             height: UIChatList.holderHeight
-        });
-        $wrapper.append(this.$dom);
+        }).append(this.$dom);
         $('body').prepend($wrapper);
     }
 
@@ -43,8 +42,8 @@ class UIChatList {
     }
 
     static get holderHeight() {
-        var windowHeight = $(window).height();
-        var footerHeight = $('footer').height();
+        let windowHeight = $(window).height();
+        let footerHeight = $('footer').height();
         return windowHeight - footerHeight;
     }
 }

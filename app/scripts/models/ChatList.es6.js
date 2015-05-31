@@ -1,9 +1,9 @@
 'use strict';
 
-var Person = require('./Person.es6');
-var UIChatList = require('../ui/UIChatList.es6');
-var UIMessage = require('../ui/UIMessage.es6');
-var EventEmitter = require('../vendor/EventEmitter.es6');
+import Person from './Person.es6';
+import UIChatList from '../ui/UIChatList.es6';
+import UIMessage from '../ui/UIMessage.es6';
+import EventEmitter from '../vendor/EventEmitter.es6';
 
 class ChatList extends EventEmitter {
     constructor() {
@@ -21,7 +21,7 @@ class ChatList extends EventEmitter {
         }
 
         person.on('new:message', (message) => {
-            var $msg = new UIMessage(message, this.$dom);
+            let $msg = new UIMessage(message, this.$dom);
             $msg.render();
             this.emit('new:message', person, message);
         });
@@ -32,7 +32,7 @@ class ChatList extends EventEmitter {
     }
 
     remove(personId) {
-        var removeIndex = null;
+        let removeIndex = null;
 
         this.each(function (member, index) {
             if (member.id === personId) {
@@ -42,7 +42,7 @@ class ChatList extends EventEmitter {
     }
 
     isExist(person) {
-        var duplicates = this._list.filter((member) => {
+        let duplicates = this._list.filter((member) => {
             return (person.id === member.id);
         });
 
@@ -75,7 +75,6 @@ class ChatList extends EventEmitter {
 
     clear() {
         this._list.length = 0;
-        this.$dom.clear();
     }
 }
 
