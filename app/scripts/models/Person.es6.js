@@ -10,8 +10,7 @@ class Person extends EventEmitter {
         super();
 
         this.nickname = params.nickname;
-        this.name = params.name;
-        this.surname = params.surname;
+        this.type = params.type;
         this.messages = [];
     }
 
@@ -21,12 +20,16 @@ class Person extends EventEmitter {
         this.emit('new:message', msg);
     }
 
-    get id() {
-        return String(SHA256(this.nickname + this.name + this.surname));
-    }
-
     toString() {
         return template(this);
+    }
+
+    get id() {
+        return Person.buildID(this.nickname + this.type);
+    }
+
+    static buildID(msg) {
+        return String(SHA256(msg));
     }
 }
 

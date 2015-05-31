@@ -57,8 +57,7 @@ class ChatList extends EventEmitter {
         return this._list.map((member) => {
             return {
                 nickname: member.nickname,
-                name: member.name,
-                surname: member.surname,
+                type: member.type,
                 messages: member.messages
             }
         });
@@ -66,6 +65,12 @@ class ChatList extends EventEmitter {
 
     at(index) {
         return this._list[index];
+    }
+
+    byId(id) {
+        return this._list.filter((person) => {
+            return person.id === id;
+        })[0];
     }
 }
 

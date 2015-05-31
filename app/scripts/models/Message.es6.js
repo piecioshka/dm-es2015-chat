@@ -7,7 +7,7 @@ class Message {
     }
 
     toString() {
-        return `${this.person}: ${this.text}`
+        return `${this.person} ${this.text}`
     }
 }
 

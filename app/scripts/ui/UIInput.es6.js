@@ -6,16 +6,13 @@ var template = require('../../templates/input.handlebars');
 class UIInput {
     constructor(params) {
         var compiled = template(params);
-        this.$dom = $('<footer>').addClass('navbar navbar-fixed-bottom').html(compiled).css({
-            'min-height': '35px'
-        });
-
+        this.$dom = $('<footer>').addClass('navbar navbar-fixed-bottom').html(compiled);
         this.$input = this.$dom.find('input');
     }
 
     onEnter(callback) {
         this.$input.on('keypress', (e) => {
-            if (UIInput.isEnter(e)) {
+            if (UIInput.isEnter(e) && !UIInput.isEmpty(this.$input.val())) {
                 (callback || $.noop)();
                 this.$input.val('');
             }
@@ -33,6 +30,10 @@ class UIInput {
 
     static isEnter(e) {
         return e.keyCode === 13;
+    }
+
+    static isEmpty(message) {
+        return String(message).trim().length === 0;
     }
 }
 

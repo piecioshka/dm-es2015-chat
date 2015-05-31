@@ -1,0 +1,21 @@
+div {
+    position: relative;
+
+    ul.list-group {
+        margin: 0;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        display: block;
+
+        &.animate {
+            transition: top 300ms;
+        }
+    }
+}
+
+footer.navbar {
+    min-height: 35px;
+    margin: 0;
+}
