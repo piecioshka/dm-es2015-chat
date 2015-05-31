@@ -20,7 +20,7 @@ class ChatList extends EventEmitter {
             throw new TypeError('ChatList#add: person is not instance of Person');
         }
 
-        person.on('new:message', (message) => {
+        person.on('new:message', message => {
             let $msg = new UIMessage(message, this.$dom);
             $msg.render();
             this.emit('new:message', person, message);
@@ -34,7 +34,7 @@ class ChatList extends EventEmitter {
     remove(personId) {
         let removeIndex = null;
 
-        this.each(function (member, index) {
+        this.each((member, index) => {
             if (member.id === personId) {
                 removeIndex = index;
             }
@@ -42,7 +42,7 @@ class ChatList extends EventEmitter {
     }
 
     isExist(person) {
-        let duplicates = this._list.filter((member) => {
+        let duplicates = this._list.filter(member => {
             return (person.id === member.id);
         });
 
@@ -54,7 +54,7 @@ class ChatList extends EventEmitter {
     }
 
     simpleList() {
-        return this._list.map((member) => {
+        return this._list.map(member => {
             return {
                 nickname: member.nickname,
                 type: member.type,
@@ -68,13 +68,15 @@ class ChatList extends EventEmitter {
     }
 
     byId(id) {
-        return this._list.filter((person) => {
+        return this._list.filter(person => {
             return person.id === id;
         })[0];
     }
 
-    clear() {
-        this._list.length = 0;
+    clearMessage() {
+        this.each(person => {
+            person.messages = [];
+        });
     }
 }
 

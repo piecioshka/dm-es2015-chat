@@ -14,10 +14,10 @@ class Chat {
         this.list = new ChatList();
 
         let clearButton = new UIButtonClear(() => {
-            this.list.clear();
+            Storage.remove('people');
+
+            this.list.clearMessage();
             this.list.$dom.clear();
-            this.setup();
-            this.input.$dom.focus();
         });
         clearButton.render();
 
@@ -62,12 +62,12 @@ class Chat {
         if (!Chat.isEmptyStorage()) {
             let storageList = Storage.get('people');
 
-            storageList.forEach((person) => {
+            storageList.forEach(person => {
                 // Get reference to person from local list by storage data.
                 let personModel = this.list.byId(Person.buildID(person.nickname + person.type));
 
                 if (person.messages) {
-                    person.messages.forEach((message) => {
+                    person.messages.forEach(message => {
                         personModel.newMessage(message);
                     });
                 }

@@ -11,7 +11,7 @@ class UIInput {
     }
 
     onEnter(callback) {
-        this.$input.on('keypress', (e) => {
+        this.$input.on('keypress', e => {
             if (UIInput.isEnter(e) && !UIInput.isEmpty(this.$input.val())) {
                 (callback || $.noop)();
                 this.$input.val('');
