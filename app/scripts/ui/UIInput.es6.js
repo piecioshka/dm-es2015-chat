@@ -1,12 +1,10 @@
 'use strict';
 
 import $ from 'jquery';
-import template from '../../templates/input.handlebars';
 
 class UIInput {
-    constructor(params) {
-        let compiled = template(params);
-        this.$dom = $('<footer>').addClass('navbar navbar-fixed-bottom').html(compiled);
+    constructor() {
+        this.$dom = $('<footer>').addClass('navbar navbar-fixed-bottom').html(UIInput.compile());
         this.$input = this.$dom.find('input');
     }
 
@@ -26,6 +24,17 @@ class UIInput {
     render() {
         $('body').append(this.$dom);
         this.$input.focus();
+    }
+
+    static compile() {
+        return `
+            <div class="input-group">
+                <span class="input-group-addon">
+                    <span class="label label-warning">you</span>
+                </span>
+                <input type="text" class="form-control" placeholder="Message">
+            </div>
+        `;
     }
 
     static isEnter(e) {

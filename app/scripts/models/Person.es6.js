@@ -3,7 +3,6 @@
 import SHA256 from 'crypto-js/sha256';
 import EventEmitter from '../vendor/EventEmitter.es6';
 import Message from './Message.es6';
-import template from '../../templates/person.handlebars';
 
 class Person extends EventEmitter {
     constructor(params) {
@@ -16,16 +15,16 @@ class Person extends EventEmitter {
 
     newMessage(text) {
         this.messages.push(text);
-        let msg = new Message(this, text);
+        let msg = new Message(Person.compile(this), text);
         this.emit('new:message', msg);
-    }
-
-    toString() {
-        return template(this);
     }
 
     get id() {
         return Person.buildID(this.nickname + this.type);
+    }
+
+    static compile(params) {
+        return `<strong class="label label-${params.type}">${params.nickname}</strong>`;
     }
 
     static buildID(msg) {
