@@ -5,6 +5,9 @@ import $ from 'jquery';
 class UIChatList {
     constructor() {
         this.$dom = $('<ul>').addClass('list-group');
+        this.$wrapper = $('<div>').append(this.$dom).css({
+            height: UIChatList.holderHeight
+        });
     }
 
     add($message) {
@@ -13,17 +16,7 @@ class UIChatList {
     }
 
     scroll() {
-        let height = this.$dom.height();
-        let top = 0;
-
-        // If we have so much message that can't see all on chat place holder.
-        if (height > UIChatList.holderHeight) {
-            top = -1 * (height - UIChatList.holderHeight);
-        }
-
-        this.$dom.css({
-            top: top
-        });
+        this.$wrapper.scrollTop(this.$dom.height());
     }
 
     enableAnimation() {
@@ -31,10 +24,7 @@ class UIChatList {
     }
 
     render() {
-        let $wrapper = $('<div>').css({
-            height: UIChatList.holderHeight
-        }).append(this.$dom);
-        $('body').prepend($wrapper);
+        $('body').prepend(this.$wrapper);
     }
 
     clear() {

@@ -5,13 +5,10 @@ a.button-clear {
 }
 
 div {
-    position: relative;
+    overflow-y: scroll;
 
     ul.list-group {
         margin: 0;
-        position: absolute;
-        left: 0;
-        top: 0;
         width: 100%;
         display: block;
 
