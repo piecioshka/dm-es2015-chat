@@ -1,17 +1,13 @@
 {
-  "name": "dm-es6-chat",
+  "name": "dm-es2015-chat",
   "version": "1.0.0",
   "main": "app/index.html",
   "repository": {
     "type": "git",
-    "url": "https://github.com/piecioshka/dm-es6-chat.git"
+    "url": "https://github.com/piecioshka/dm-es2015-chat.git"
   },
   "author": "Piotr Kowalski",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/piecioshka/dm-es6-chat.git/issues"
-  },
-  "homepage": "https://github.com/piecioshka/dm-es6-chat.git",
   "dependencies": {
     "babel-core": "^4.6.6",
     "babel-loader": "^4.0.0",
