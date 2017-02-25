@@ -1,6 +1,6 @@
 # dm-es2015-chat
 
-> Chat application for the DevMeetings' ES2015.
+> Chat application for the DevMeetings ES2015.
 
 ## Installation
 
