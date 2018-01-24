@@ -4,22 +4,35 @@
 
 ## Installation
 
-You'll need to have `node` and `npm` installed globally. All commands should be executed from the project's main directory.
+You'll need to have `node` and `npm` installed globally.
+All commands should be executed from the project's main directory.
 
 ```
 $ npm install
-$ npm install -g webpack
 ```
-This will install `webpack` globally for convenient use.
 
 ## Usage
 
 To compile all files **once**:
+
 ```
-$ webpack
+$ npm run build
 ```
 
 To watch the changes and recompile the files that have changed:
+
 ```
-$ webpack --watch
+$ npm run watch
 ```
+
+## Start
+
+To run HTTP server run:
+
+```
+$ npm run start
+```
+
+## License
+
+[The MIT License](http://piecioshka.mit-license.org) @ 2015
